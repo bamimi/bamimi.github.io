@@ -1,0 +1,50 @@
+[
+	{
+		"name": "Matthew Pham",
+		"job": "Technical Leader at CMC Global",
+		"imageUrl": "assets/img/reviews/mathew-tl-cmc.png",
+		"msg": "Bamimi has been a catalyst for my professional and business growth."
+	},
+	{
+		"name": "Martin Dinh",
+		"job": "Agile Project Manager at FPT Software",
+		"imageUrl": "assets/img/reviews/martin-pm-fpt.png",
+		"msg": "It seems that this will be a stack that will help speed up the project process and increase efficiency"
+	},
+	{
+		"name": "Duke Nguyen",
+		"job": "Data Engineer at FPT Software",
+		"imageUrl": "assets/img/reviews/duke-dt-fpt.png",
+		"msg": "I don't have too much expertise in the web, but I was really surprised at how useful and complete Bamimi is. Hopefully it will develop further in the future"
+	},
+	{	
+		"name": "Cam Nguyen",
+		"job": "Lecture at Posts and Telecommunications Institute of Technology",
+		"imageUrl": "assets/img/reviews/cam-lt-ptit.png",
+		"msg": "Easy to use, easy to learn and convenient"
+	},
+	{
+		"name": "Truong Tuan Thanh",
+		"job": "PHP Developer at Outcubator",
+		"imageUrl": "assets/img/reviews/thanh-pd-ocb.png",
+		"msg": "This may be the reason for me to try learning Node JS, Hahaha"
+	},
+	{
+		"name": "ShinChi Le",
+		"job": "Web Developer at BSS Group",
+		"imageUrl": "assets/img/reviews/shinchi-wd-bssg.png",
+		"msg": "BAMIMI takes a unique approach in combining great traditional NodeJS developer experience with fully integrated, reusable features to increase development speed and project efficiency"
+	},
+	{
+		"name": "Dennis Nguyen",
+		"job": "Lecture at Swinburne Vietnam",
+		"imageUrl": "assets/img/reviews/dennis-lt-swb.png",
+		"msg": "There is something new, although lacking, it is still worth a try"
+	},
+	{
+		"name": "Tien Ngo",
+		"job": "Web Developer at FPT Software",
+		"imageUrl": "assets/img/reviews/tien-wd-fpt.png",
+		"msg": "Haven't had a chance to apply Bamimi to my project yet, but I see this as a potential product"
+	}
+]

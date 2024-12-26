@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BAMIMI</title>
+	<link rel="icon" type="image/x-icon" href="assets/img/bamimi-logo.png">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/styles.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+
+</head>
+
+<body class="main-page">
+	<!-- Navigation Bar -->
+	<nav class="navbar navbar-light">
+		<div class="navbar-brand">
+			<a class="knfs-logo" href="https://www.knfs-tech.com/" target="_blank" title="KNFs JSC" rel="nofollow noopener">
+				<img src="assets/img/knfs-logo.png" alt="Logo" class="logo">
+			</a>
+			<span class="or">/</span>
+			<a class="" href="#">
+				<span class="bami">BAMI</span><span class="mi">MI</span>
+			</a>
+			
+		</div>
+		<div>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="#">
+						<button class="btn btn-knfs-white ">
+							DOCUMENTATION
+						</button>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<header class="hero">
+		<div class="container">
+			<img src="assets/img/bamimi-logo.png" alt="MyFramework Logo" width="250" id="logo">
+			<div class="title m-b-md">
+				<span class="bami">BAMI</span><span class="mi">M</span><span class="i">I</span>
+				<p>v0.3.2</p>
+			</div>
+		</div>
+		<div class="lead">
+			<p>A powerful framework for <strong class="mi highlight-text"> <i class="fab fa-node-js"></i> NodeJS</strong> that
+				helps our great apps be built <span class="bami highlight-text">quickly</span>, <span
+					class="mi highlight-text">cleanly</span>, <span class="bami highlight-text">securely</span>, and <span
+					class="mi highlight-text">efficiently</span>
+			</p>
+		</div>
+		<div class="quick-action d-flex justify-content-between">
+			<a href="#" title="BAMIMI Cli">
+				<button class="btn btn-knfs btn-knfs-width">Get started</button>
+			</a>
+			<a href="https://github.com/knfs-library/bamimi-cli" target="_blank" title="BAMIMI Cli">
+				<button class="btn btn-knfs-white btn-knfs-width">Github</button>
+			</a>
+		</div>
+		
+	</header>
+	<div id="overview" class="row mt-4">
+		<div class="col-lg-4 col-md-6 col-sm-1 mb-4">
+			<i class="fas fa-hand-sparkles"></i>
+			<div class="mt-1">
+				<h3>Cleaner</h3>
+				<p class="feature-content">
+					<span class="bami">BAMI</span><span class="mi">MI</span>'s clear architecture helps you code cleaner and
+					tidier
+				</p>
+				<a href="#moreCleaner" title="BAMIMI Cli">
+					<button class="btn btn-knfs-white btn-knfs-width">More</button>
+				</a>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-1 mb-4">
+			<i class="fas fa-history"></i>
+			<div class="mt-1">
+				<h3>More Efficient</h3>
+				<p class="feature-content">
+					Spend your time writing the code that really matters and let <span class="bami">BAMI</span><span
+						class="mi">MI</span> handle the rest.
+				</p>
+				<a href="#moreEfficient" title="More">
+					<button class="btn btn-knfs-white btn-knfs-width">More</button>
+				</a>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-1">
+			<i class="far fa-laugh-squint"></i>
+			<div class="mt-1">
+				<h3>Happier</h3>
+				<p class="feature-content">
+					When the problems have been solved, what are you waiting for to be unhappy?
+				</p>
+				<a href="#moreHappier" title="More">
+					<button class="btn btn-knfs-white btn-knfs-width">More</button>
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<!-- Installation Section -->
+		<section id="moreCleaner" class="c-full"">
+			<div class="section-header">
+				<h1>"Bánh mì Việt Nam, đặc ruột thơm bơ"</h1>
+				<p>Discover how <span class="bami">BAMI</span><span class="mi">MI</span> applications are built.</p>
+			</div>
+			<div class="container .padding-0">
+				<h5 class="mt-4 mb-2 bami">Step 1: Install Cli:</h5>
+				<label>With npm</label>
+				<div class="position-relative code-container">
+					<button class="btn btn-primary copy-button"
+						data-clipboard-text="npm install -g @knfs-tech/bamimi-cli"><i class="fas fa-copy"></i></button>
+					<pre><code class="language-javascript">npm install -g @knfs-tech/bamimi-cli</code></pre>
+				</div>
+				<label>With yarn</label>
+				<div class="position-relative code-container">
+					<button class="btn btn-primary copy-button"
+						data-clipboard-text="yarn global add @knfs-tech/bamimi-cli"><i class="fas fa-copy"></i></button>
+					<pre><code class="language-javascript">yarn global add @knfs-tech/bamimi-cli</code></pre>
+				</div>
+				<h5 class="mt-4 mb-2 bami">Step 2: Generate project:</h5>
+				<label>Normal</label>
+				<div class="position-relative code-container">
+					<button class="btn btn-primary copy-button" data-clipboard-text="bamimi-cli create &lt;projectName&gt;"><i
+							class="fas fa-copy"></i></button>
+					<pre><code class="language-javascript">bamimi-cli create &lt;projectName&gt; [options]</code></pre>
+				</div>
+				<label>With npx</label>
+				<div class="position-relative code-container">
+					<button class="btn btn-primary copy-button" data-clipboard-text="npx bamimi-cli create &lt;projectName&gt;"><i
+							class="fas fa-copy"></i></button>
+					<pre><code class="language-javascript">npx @knfs-tech/bamimi-cli@latest create &lt;projectName&gt; [options]</code></pre>
+				</div>
+				<h5 class="mt-4 mb-2 bami">Step 3: Start project in local:</h5>
+				<label>With Npm</label>
+				<div class="position-relative code-container">
+					<button class="btn btn-primary copy-button" data-clipboard-text="cd &lt;projectPath&gt && npm run dev"><i
+							class="fas fa-copy"></i></button>
+					<pre><code class="language-javascript">cd &lt;projectPath&gt && npm run dev</code></pre>
+				</div>
+				<label>With yarn</label>
+				<div class="position-relative code-container">
+					<button class="btn btn-primary copy-button" data-clipboard-text="cd &lt;projectPath&gt && yarn start-dev"><i
+							class="fas fa-copy"></i></button>
+					<pre><code class="language-javascript">cd &lt;projectPath&gt && yarn dev</code></pre>
+				</div>
+				<h5 class="mt-4 mb-2 bami">Step 4: Build project:</h5>
+				<label>With Npm</label>
+				<div class="position-relative code-container">
+					<button class="btn btn-primary copy-button" data-clipboard-text="npm run start-dev"><i
+							class="fas fa-copy"></i></button>
+					<pre><code class="language-javascript">npm run build</code></pre>
+				</div>
+				<label>With yarn</label>
+				<div class="position-relative code-container">
+					<button class="btn btn-primary copy-button" data-clipboard-text="yarn start-dev"><i
+							class="fas fa-copy"></i></button>
+					<pre><code class="language-javascript">yarn build</code></pre>
+				</div>
+				<label>With bamimi-cli</label>
+				<div class="position-relative code-container">
+					<button class="btn btn-primary copy-button" data-clipboard-text="npx @knfs-tech/bamimi-cli@latest build"><i
+							class="fas fa-copy"></i></button>
+					<pre><code class="language-javascript">npx @knfs-tech/bamimi-cli@latest build</code></pre>
+				</div>
+				<div class="d-flex justify-content-center align-items-center">
+					<a href="https://github.com/knfs-library/bamimi-cli" target="_blank" title="BAMIMI Cli">
+						<button class="btn btn-knfs">Learn more</button>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section id="moreEfficient" class="c-full">
+			<div class="section-header">
+				<h1>Let's focus on the important part</h1>
+				<div class="description">
+					<p>Forget the days when it took a lot of time to build source code from scratch, all your time should be spent researching
+				important features of the project, let <span class="bami">BAMI</span><span class="mi">MI</span> take care of the rest.</p>
+				</div>
+			</div>
+			<div class="container padding-0 section-content">
+				<div class="row container-fluid padding-0">
+					<div class="col-lg-3 col-md-4 container-tab">
+						<div class="btn-tab" id="tabAuthenticate">
+							<i class="fas fa-lock"></i>
+							<span class="font-tab">Authenticate</span>
+						</div>
+						<div class="btn-tab" id="tabSecurity">
+							<i class="fas fa-shield-alt"></i>
+							<span class="font-tab">Security</span>
+						</div>
+						<div class="btn-tab" id="tabMail">
+							<i class="fas fa-envelope"></i>
+							<span class="font-tab">Mail</span>
+						</div>
+						<div class="btn-tab" id="tabJobQueue">
+							<i class="fas fa-layer-group"></i>
+							<span class="font-tab">Job Queue</span>
+						</div>
+						<div class="btn-tab" id="tabTaskScheduling">
+							<i class="fas fa-clock"></i>
+							<span class="font-tab">Task Scheduling</span>
+						</div>
+						<div class="btn-tab" id="tabSocket">
+							<i class="fas fa-arrows-alt-h"></i>
+							<span class="font-tab">Socket.io</span>
+						</div>
+						<div class="btn-tab" id="tabInterface">
+							<i class="fas fa-mask"></i>
+							<span class="font-tab">Interface</span>
+						</div>
+						<div class="btn-tab" id="tabTesting">
+							<i class="fas fa-terminal"></i>
+							<span class="font-tab">Testing</span>
+						</div>
+						<div class="btn-tab" id="tabDocker">
+							<i class="fab fa-docker"></i>
+							<span class="font-tab">Docker</span>
+						</div>
+					</div>
+					<div class="col-lg-9 col-md-8 container-tab-content">
+						<div class="tab-content" id="contentAuthenticate">
+							<h3>Authenticate</h3>
+							<p>
+								<span class="bami">BAMI</span><span class="mi">MI</span> uses authentication with the fully-featured 
+								<a href="https://www.npmjs.com/package/@knfs-tech/bamimi-auth">@knfs-tech/bamini-auth</a> library. Additionally, 
+								<span class="bami">BAMI</span><span class="mi">MI</span>'s source includes
+								authentication middleware that can be utilized on your router:
+								<div class="position-relative code-container">
+									<pre><code class="language-javascript">//src/routers/api/index.js
+"use strict";
+const router = require("express").
+const authenticate = require("@iApp/http/middleware/apiAuthentication.mid")
+
+router.get(
+	"/demo", 
+	authenticate, 
+	require("@iApp/http/controllers/api/demo").index
+);
+</code></pre>
+								</div>
+								Of course, you may define your own authentication middleware, allowing you to customize the authentication process.
+								
+								For more information on <span class="bami">BAMI</span><span class="mi">MI</span>'s authentication features, check out
+								the <a href="#">authentication documentation</a>.
+							</p>
+						</div>
+						<div class="tab-content" id="contentSecurity">
+							<h3>Security</h3>
+							<p>
+								<span class="bami">BAMI</span><span class="mi">MI</span> has installed many security libraries and is pre-installed in the kernel.
+								<br>
+								For example <a href="https://www.npmjs.com/package/@knfs-tech/csrf">@knfs-tech/csrf</a> library, you can use it by adding to your router:
+							<div class="position-relative code-container">
+								<pre><code class="language-javascript">//src/routers/web/index.js
+"use strict";
+const router = require("express").
+
+const { protect: csrfProtect } = require("@knfs-tech/csrf")
+
+// Router to get form
+router.get(
+	"/get-form",
+	require("@iApp/http/controllers/web/demo").getForm
+);
+
+// Router to request form
+router.post(
+	"/save-form", 
+	csrfProtect,
+	require("@iApp/http/controllers/web/demo").saveForm
+);
+</code></pre>
+							</div>
+							To add tokens to the form when submitting, you can use the available csrf utils:
+							<div class="position-relative code-container">
+								<pre><code class="language-html" id="html-code"></code></pre>
+							</div>
+
+							<a href="#">Learn more</a>
+							</p>
+						</div>
+						<div class="tab-content" id="contentMail">
+							<h3>Mail</h3>
+							<p>
+								<span class="bami">BAMI</span><span class="mi">MI</span> also provides you with an email notification generator 
+								that can be integrated with jobs
+							<div class="position-relative code-container">
+								<pre><code class="language-javascript">npx @knfs-tech/bamimi-cli@latest email:generate demoEmail -tn demoEmail -job demoEmail</code></pre>
+							</div>
+							<p>After running command line, the system immediately creates the following files:</p>
+							<li>File <strong>demoEmail.email.js</strong> focus on handling issues of email sampling, 
+								preparing data for email samples and preparing email content. Then put it in the queue for sending
+							</li>
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//src/app/emails/demoEmail.email.js
+"use strict";
+
+const { renderTemplate } = require("@iUtils/mail");
+const { QueueManager } = require("@knfs-tech/bamimi-schedule")
+module.exports = (data) => {
+const html = renderTemplate("demoEmail.ejs");
+
+QueueManager
+	.singleton()
+	.getQueue("demoEmail")
+	.add("demoEmail", {
+		to: data.email, 
+		subject: "Welcome to Bamimi land", 
+		html: html});
+};
+</code></pre>
+							</div>
+							<li>At <strong>demoEmail.job.js</strong>, The job performs retrieving data from the queue and handles sending email </li>
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//src/app/jobs/demoEmail.job.js
+"use strict";
+
+const { sendMail } = require("@iUtils/mail");
+module.exports = {
+	name: "demoEmail",
+	queue: "demoEmail",
+	handle: async function (job) {
+		await sendMail(job.data); 
+	}
+};
+</code></pre>
+							</div>
+							<li><strong>demoEmail.ejs</strong> is the default email template created by <span class="bami">BAMI</span><span class="mi">MI</span>
+							</li>
+							<div class="position-relative code-container">
+								<pre><code class="language-html" id="email-template-code"></code></pre>
+							</div>
+							<li>Along with that, you need to go to file config of job and add the information of the job you want to run
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//src/configs/job.js
+"use strict";
+
+module.exports = [
+    {
+        name: "demoEmail",
+        func: require("@iApp/jobs/demoEmail.job"),
+        onMain: false //To set true if you want to run it concurrently on main processing
+    },
+];
+</code></pre>
+							</div>
+							<p>
+								That's just a basic example of creating an email. You can see detailed usage with many cases at the the <a href="#">documentation</a>
+							</p>
+						</div>
+						<div class="tab-content" id="contentJobQueue">
+							<h3>Job Queue</h3>
+							<span class="bami">BAMI</span><span class="mi">MI</span> also integrated queue jobs because we know the use case is very popular
+							<div class="position-relative code-container">
+								<pre><code class="language-javascript">npx @knfs-tech/bamimi-cli@latest job:generate demoJob</code></pre>
+							</div>
+							<p>After running command line, the system immediately creates the following files:</p>
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//src/app/jobs/demoJob.job.js
+"use strict";
+
+module.exports = {
+    name: "demoJob",
+    queue: "demoJob",
+    handle: async function (job) {}
+};
+
+</code></pre>
+							</div>
+							<li>Along with that, you need to go to file config of job and add the information of the job you want to run
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//src/configs/job.js
+"use strict";
+
+module.exports = [
+    {
+        name: "demoJob",
+        func: require("@iApp/jobs/demoJob.job"),
+        onMain: false //To set true if you want to run it concurrently on main processing
+    },
+];
+</code></pre>
+							</div>
+							<p>There are many more job properties and how to use them in practice, see here <a href="#">job queue documentation</a></p>
+						</div>
+						<div class="tab-content" id="contentTaskScheduling">
+							<h3>Task Scheduling</h3>
+							<p>
+								Effortlessly schedule recurring jobs and commands with a clear, expressive syntax—no more dealing with complex
+								configuration files!
+							</p>
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">npx @knfs-tech/bamimi-cli@latest job:generate cronJob
+? Is it cron job (Y/n): 
+</code></pre>
+							</div>
+							<p>After running command line, the system immediately creates the following files and you add more information for schedule:</p>
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//src/app/jobs/cronJob.job.js
+"use strict";
+
+module.exports = {
+    name: "cronJob",
+    queue: "cronJob",
+	schedules: [
+		{
+			name: "first-day-every-month",
+			time: {
+			pattern: "0 0 1 * *"
+			}, // cron schedule
+			prepare: { data: { email: "test@example.com" } },
+		},
+	],
+    handle: async function (job) {}
+};
+</code></pre>
+							</div>
+							<li>Like a normal job, you also need to declare it:
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//src/configs/job.js
+"use strict";
+
+module.exports = [
+    {
+        name: "cronJob",
+        func: require("@iApp/jobs/cronJob.job"),
+        onMain: false //To set true if you want to run it concurrently on main processing
+    },
+];
+</code></pre>
+							</div>
+							<p>finally you need to run it</p>
+							<div class="position-relative code-container">
+<pre><code class="language-bash">$ npm link
+$ bamimi-oven job cronJob
+</code></pre>
+							</div>
+							<a href="#">Learn more</a>
+						</div>
+						<div class="tab-content" id="contentSocket">
+							<h3>Socket</h3>
+							<p>
+								<span class="bami">BAMI</span><span class="mi">MI</span> integrated <strong>socket.io</strong> for handling real-time issue and event broadcasting issue with 
+								<a href="https://www.npmjs.com/package/@knfs-tech/bamimi-socket.io">@knfs-tech/bamimi-socket.io</a>
+							</p>
+							<p>
+								For example, in the case of a processing message when processing an uploaded excel file:
+							</p>
+							<li>
+								Add the Auth middleware information, and the channel will handle event notifications
+							</li>
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//src/routers/socket/index.js
+"use strict";
+
+const socket = require("@knfs-tech/bamimi-socket.io")
+
+const AuthMiddleware = require("@iApp/http/middleware/socketAuth.mid")
+
+const ImportChannel = require("@iApp/channels/import.channel")
+
+socket.on("/import", AuthMiddleware, ImportChannel.import)
+</code></pre>
+						</div>
+						<li>
+							Handle pushing notifications out
+						</li>
+						<div class="position-relative code-container">
+<pre><code class="language-javascript">//src/app/channels/import.channel.js
+"use strict";
+
+const { getStorage } = require("@iKernel/cache")
+const cache = getStorage().new
+
+module.exports = {
+    import: async function (io, socket) {
+        const id = socket.handshake.currentUser.id;
+        const room = `import-excel:${id}`
+        await socket.join(room);
+        await cache.subscribe(`import-excel-process-${id}`, async (err, count) => {
+            if (err) {
+                console.error("Failed to subscribe to channels: ", err.message);
+            } else {
+                console.log(`Subscribed successfully to ${count} channels.`);
+            }
+        })
+        await cache.on("message", async (channel, message) => {
+            const msgData = await JSON.parse(String(message))
+            const event = "notify:"
+            console.info("event: " + event)
+            console.info("message: " + message)
+            io.of("/import").to(room).emit("get-log", msgData);
+        });
+    }
+}
+</code></pre>
+						</div>
+						<li>
+							An example of a job processed through a file import process
+						</li>
+						<div class="position-relative code-container">
+<pre><code class="language-javascript">//src/app/jobs/import.job.js
+"use strict";
+
+const { getStorage } = require("@iKernel/cache")
+const cache = getStorage().singleton
+
+module.exports = {
+    name: "importJob",
+    queue: "importQueue",
+    handle: async function (job) {
+        console.group("-------------- START IMPORT EXCEL --------------")
+		console.time("Process Time");
+
+        const currentUser = job.data.currentUser;
+		for (let i = 0; i <= 100; i++) {
+			cache.publish(`import-excel-process-${id}`, JSON.stringify({
+                    percentage: i,
+                }), (err, count) => {
+                    if (err) {
+                        console.error("Failed to publish: ", err.message);
+                    } else {
+                        console.log(`Message sent to ${count} subscriber(s).`);
+                    }
+                })
+		}
+		console.info("--------------- END IMPORT EXCEL ---------------")
+		console.timeEnd("Process Time");
+		console.groupEnd();
+    }
+}
+</code></pre>
+							</div>
+						</div>
+						<div class="tab-content" id="contentInterface">
+							<h3>Interface</h3>
+							<p>
+								<span class="bami">BAMI</span><span class="mi">MI</span> fully develops interface three types API, Web UI, CLI.
+							</p>
+							<li>
+								With <strong>API</strong> is in structural form:
+							</li>
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">{
+	meta: {
+		"content": "OK", // content message
+		"code": 200 // status of response
+	},
+	data: {
+		user: {
+			id: 1,
+			username: "demo12345",
+			email: "demao12345@gmail.com"
+		}
+	}
+}
+</code></pre>
+							</div>
+							to get the response as above the programmer only needs to type in function of controller and router of api:
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//@iApp/controllers/api/demo.controller.js
+"use strict";
+module.exports = {
+	getUser: async function (req, res, next) {
+		try {
+			const user = {
+				id: 1,
+				username: "demo12345",
+				email: "demao12345@gmail.com"
+			}
+			
+			res.status(200).sendMessage({user})
+		} catch (error) {
+			next(error)
+		}
+	}
+}
+</code></pre>
+							</div>
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//@iRoutes/api/index.js
+"use strict";
+const router = require("express").Router();
+
+router.get("/get-user", require("@iApp/http/controllers/api/demo.controller").getUser);
+
+module.exports = router;
+</code></pre>
+							</div>
+							<li>
+								With <strong>Web UI</strong> integrated with <a href="https://ejs.co">EJS Engine</a>:
+							</li>
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//@iApp/controllers/web/demo.controller.js
+"use strict";
+
+module.exports = {
+    index: async function (req, res, next) {
+        try {
+            return await res.view({
+                view: "pages/home", data: {
+                    version: "1.0.0"
+                }
+            });
+        } catch (error) {
+            next(error)
+        }
+    }
+};
+</code></pre>
+							</div>
+							<li>
+								With <strong>CLI</strong> integrated with <a href="https://www.npmjs.com/package/commander">Commander Library</a>:
+							</li>
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//@iRoutes/cli/index.js
+#!/usr/bin/env node
+const { Command } = require("commander");
+const program = new Command();
+
+const jobCommand = require("@iKernel/cronjobs");
+
+program
+    .addCommand(jobCommand)
+
+program.parse(process.argv);
+</code></pre>
+							</div>
+							and run by
+							<div class="position-relative code-container">
+<pre><code class="language-bash">$ npm link
+$ bamimi-oven 
+</code></pre>
+							</div>
+							<a href="#">Learn More</a>
+						</div>
+						<div class="tab-content" id="contentTesting">
+							<h3>Testing</h3>
+							<p>
+								<span class="bami">BAMI</span><span class="mi">MI</span> integrated <a href="https://jestjs.io/">Jest</a> library for testing
+							</p>
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//src/app/services/sum.js
+"use strict";
+
+function sum(a, b) {
+	return a + b;
+}
+
+module.exports = sum;
+</code></pre>
+							</div>
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//test/units/services/sum.spec.js
+"use strict";
+
+const sum = require('@iApp/services/sum');
+
+test('adds 1 + 2 to equal 3', () => {
+	expect(sum(1, 2)).toBe(3);
+});
+</code></pre>
+							</div>
+						</div>
+						<div class="tab-content" id="contentDocker">
+							<h3>Docker</h3>
+							<p>
+								Deploying the project to different environments is very important, so we have created a docket file with two stage builder
+								and development for future use and you can register it during project initialization
+							</p>
+							<div class="position-relative code-container">
+<pre><code class="language-bash">$ npx @knfs-tech/bamimi-cli@latest create demo-project
+? Would you like to include a Dockerfile? (Y/n)
+</code></pre>
+							</div>
+							<p>
+								If you choose Yes (y/Y), the generated source code will include a DockerFile file with two stage
+							</p>
+							<li>
+								Builder stage(use when building projects)
+							</li>
+							<div class="position-relative code-container">
+<pre><code class="language-docker"># Stage 1: Builder
+FROM node:20 AS builder
+
+# Install necessary build tools
+RUN apt-get update && apt-get install -y \
+build-essential \
+python3 \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/*
+
+WORKDIR /usr/src/app
+
+COPY --chown=node:node package.json yarn.lock ./
+
+# Install dependencies for building
+RUN yarn install --production=false
+
+COPY --chown=node:node . .
+
+RUN yarn build
+</code></pre>
+							</div>
+							<li>
+								And development stage(use built resources form the builder stage and run in the development environment)
+							</li>
+							<div class="position-relative code-container">
+<pre><code class="language-docker"># Stage 2: Development
+FROM node:20-slim as dev
+
+ENV NODE_ENV=development
+
+# Copy only the dist directory from the builder stage
+COPY --from=builder /usr/src/app/dist /usr/src/app/dist
+
+COPY --from=builder /usr/src/app/package.json /usr/src/app/package.json
+
+# If you want to use
+COPY --from=builder /usr/src/app/.env /usr/src/app/.env
+
+WORKDIR /usr/src/app
+
+RUN yarn install --production=false --ignore-scripts
+
+EXPOSE 3000
+
+CMD ["yarn", "start"]
+</code></pre>
+							</div>
+							<a href="#">Learn More</a>
+						</div>
+					</div>
+				</div>
+				<br>
+				<p>
+					We've only begun to explore the possibilities. With <span class="bami">BAMI</span><span class="mi">MI</span>, you have everything you need to build a complete web
+					application—email verification, linting, and even custom console commands. Dive into <a href="#">the documentation</a> to
+					continue your journey!
+				</p>
+			</div>
+		</section>
+
+		<section id="moreHappier" class="c-full">
+			<div class="section-header">
+				<h1>We hope you will be happier ❤️ </h1>
+				<div class="description">
+					<p>We are also really happy to be able to help make your work simpler. We hope you have more time for yourself and will
+					feel happy on your journey with <span class="bami">BAMI</span><span class="mi">MI</span>.</p>
+					<p></p>
+				</div>
+			</div>
+			<div class="container section-content">
+				<div class="container-fluid padding-0 mt-14" id="reviewList">
+					
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<!-- Footer -->
+	<footer>
+		<p>&copy; 2024 KNFs,.jsc - <span class="bami">BAMI</span><span class="mi">MI</span> - MIT License</p>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+	<script src="assets/js/scripts.js"></script>
+	<script src="assets/js/render-code.js"></script>
+</body>
+
+</html>
