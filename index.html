@@ -65,7 +65,7 @@
 			<img src="assets/img/bamimi-logo.png" alt="MyFramework Logo" width="250" id="logo">
 			<div class="title m-b-md">
 				<span class="bami">BAMI</span><span class="mi">M</span><span class="i">I</span>
-				<p>v0.3.3</p>
+				<p>v0.5.2</p>
 			</div>
 		</div>
 		<div class="lead">
@@ -587,8 +587,34 @@ module.exports = {
 }
 </code></pre>
 							</div>
-							to get the response as above the programmer only needs to type in function of controller and router of api:
+							<p>to get the response as above the programmer only needs create interface:</p>
 							<div class="position-relative code-container">
+								<pre><code class="language-javascript">npx @knfs-tech/bamimi-cli@latest itf:generate user</code></pre>
+							</div>
+							<p>then we have generated file, you need to custom it </p>
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//@iApp/interfaces/apis/user.js
+"use strict";
+module.exports = (user) => {
+	return {
+		id: user.id,
+		username: user.username ?? null,
+		email: user.email ?? null
+	}
+}
+</code></pre>
+							</div>
+							<p>and declare it in: </p>
+							<div class="position-relative code-container">
+<pre><code class="language-javascript">//@iApp/interfaces/apis/index.js
+"use strict";
+module.exports = {
+	user: require("./user")
+}
+</code></pre>
+							</div>
+							<div class="position-relative code-container">
+							<p>finally, we apply it in function of controller and router of api:</p>
 <pre><code class="language-javascript">//@iApp/controllers/api/demo.controller.js
 "use strict";
 module.exports = {
@@ -600,7 +626,7 @@ module.exports = {
 				email: "demao12345@gmail.com"
 			}
 			
-			res.status(200).sendMessage({user})
+			res.status(200).sendUser(user)
 		} catch (error) {
 			next(error)
 		}
@@ -706,8 +732,12 @@ test('adds 1 + 2 to equal 3', () => {
 </code></pre>
 							</div>
 							<p>
-								If you choose Yes (y/Y), the generated source code will include a DockerFile file with two stage
+								If you choose Yes (y/Y), the generated source code will include a DockerFile file with three stage
 							</p>
+							<p> Or you can create by CLI:</p>
+							<div class="position-relative code-container">
+								<pre><code class="language-javascript">npx @knfs-tech/bamimi-cli@latest docker:generate</code></pre>
+							</div>
 							<li>
 								Builder stage(use when building projects)
 							</li>
@@ -735,25 +765,46 @@ RUN yarn build
 </code></pre>
 							</div>
 							<li>
-								And development stage(use built resources form the builder stage and run in the development environment)
+								Development stage(use built resources form the builder stage and run in the development environment)
 							</li>
 							<div class="position-relative code-container">
 <pre><code class="language-docker"># Stage 2: Development
-FROM node:20-slim as dev
-
-ENV NODE_ENV=development
+FROM node:20-slim as development
 
 # Copy only the dist directory from the builder stage
 COPY --from=builder /usr/src/app/dist /usr/src/app/dist
 
 COPY --from=builder /usr/src/app/package.json /usr/src/app/package.json
-
-# If you want to use
+COPY --from=builder /usr/src/app/node_modules /usr/src/app/node_modules
 COPY --from=builder /usr/src/app/.env /usr/src/app/.env
 
+ENV NODE_ENV=development
 WORKDIR /usr/src/app
 
 RUN yarn install --production=false --ignore-scripts
+
+EXPOSE 3000
+
+CMD ["yarn", "start"]
+</code></pre>
+							</div>
+							<li>
+								Production stage(use built resources form the builder stage and run in the production environment)
+							</li>
+							<div class="position-relative code-container">
+<pre><code class="language-docker"># Stage 2: Production
+FROM node:20-slim as production
+
+# Copy only the dist directory from the builder stage
+COPY --from=builder /usr/src/app/dist /usr/src/app/dist
+
+COPY --from=builder /usr/src/app/package.json /usr/src/app/package.json
+COPY --from=builder /usr/src/app/.env /usr/src/app/.env
+
+ENV NODE_ENV=production
+WORKDIR /usr/src/app
+
+RUN yarn install --production
 
 EXPOSE 3000
 
