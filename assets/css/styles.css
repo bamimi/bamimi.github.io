@@ -302,6 +302,7 @@ pre code {
 #overview {
 	min-height: 300px;
 	margin-bottom: 5vh;
+	margin-right: 0px !important; 
 }
 
 #overview div {
