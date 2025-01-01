@@ -65,7 +65,7 @@
 			<img src="assets/img/bamimi-logo.png" alt="MyFramework Logo" width="250" id="logo">
 			<div class="title m-b-md">
 				<span class="bami">BAMI</span><span class="mi">M</span><span class="i">I</span>
-				<p>v0.5.3</p>
+				<p>v0.6.6</p>
 			</div>
 		</div>
 		<div class="lead">
@@ -152,7 +152,7 @@
 				<div class="position-relative code-container">
 					<button class="btn btn-primary copy-button" data-clipboard-text="bamimi-cli create &lt;projectName&gt;"><i
 							class="fas fa-copy"></i></button>
-					<pre><code class="language-javascript">bamimi-cli create &lt;projectName&gt; [options]</code></pre>
+					<pre><code class="language-javascript">bamimi-cli app:generate &lt;projectName&gt; [options]</code></pre>
 				</div>
 				<label>With npx</label>
 				<div class="position-relative code-container">
@@ -792,7 +792,7 @@ CMD ["yarn", "start"]
 								Production stage(use built resources form the builder stage and run in the production environment)
 							</li>
 							<div class="position-relative code-container">
-<pre><code class="language-docker"># Stage 2: Production
+<pre><code class="language-docker"># Stage 3: Production
 FROM node:20-slim as production
 
 # Copy only the dist directory from the builder stage
