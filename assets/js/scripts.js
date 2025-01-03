@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	function renderCodeInMoreEfficient() {
 		const htmlSecurity = `<form id="quickForm" method="POST">
-	<%- global.$_csrf.input(csrfToken) %>
+	<%- $_csrf.input(csrfToken) %>
 	<input type="text" name="username">
 	<button type="submit">Save</button>
 </form>
