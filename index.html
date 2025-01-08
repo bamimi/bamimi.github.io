@@ -578,7 +578,7 @@ module.exports = {
 		"code": 200 // status of response
 	},
 	data: {
-		user: {
+		userData: {
 			id: 1,
 			username: "demo12345",
 			email: "demao12345@gmail.com"
@@ -607,9 +607,14 @@ module.exports = (user) => {
 							<p>and declare it in: </p>
 							<div class="position-relative code-container">
 <pre><code class="language-javascript">//@iApp/interfaces/apis/index.js
-"use strict";
+/**
+* Set interface you want to use
+*/
 module.exports = {
-	user: require("./user")
+	user: {
+		key: "userData", //representative field displayed at response
+		dto: require("./user") //format data
+	}
 }
 </code></pre>
 							</div>
@@ -626,7 +631,7 @@ module.exports = {
 				email: "demao12345@gmail.com"
 			}
 			
-			res.status(200).sendUser(user)
+			return res.status(200).sendUser(user) // or use default return res.status(200).sendData({userData: user})
 		} catch (error) {
 			next(error)
 		}
