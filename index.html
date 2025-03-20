@@ -49,7 +49,7 @@
 		<div>
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="/docs/0.6.x">
+					<a class="nav-link" href="/docs/1.x.x">
 						<button class="btn btn-knfs-white ">
 							DOCUMENTATION
 						</button>
@@ -65,7 +65,7 @@
 			<img src="assets/img/bamimi-logo.png" alt="MyFramework Logo" width="250" id="logo">
 			<div class="title m-b-md">
 				<span class="bami">BAMI</span><span class="mi">M</span><span class="i">I</span>
-				<p>v0.6.x</p>
+				<p>v1.x.x</p>
 			</div>
 		</div>
 		<div class="lead">
@@ -76,7 +76,7 @@
 			</p>
 		</div>
 		<div class="quick-action d-flex justify-content-between">
-			<a href="/docs/0.6.x?content=gs_installation" title="BAMIMI Cli">
+			<a href="/docs/1.x.x?content=gs_installation" title="BAMIMI Cli">
 				<button class="btn btn-knfs btn-knfs-width">Get started</button>
 			</a>
 			<a href="https://github.com/knfs-library/bamimi-cli" target="_blank" title="BAMIMI Cli">
@@ -190,7 +190,7 @@
 				<div class="position-relative code-container">
 					<button class="btn btn-primary copy-button" data-clipboard-text="npx @knfs-tech/bamimi-cli@latest build"><i
 							class="fas fa-copy"></i></button>
-					<pre><code class="language-javascript">npx @knfs-tech/bamimi-cli@latest build</code></pre>
+					<pre><code class="language-javascript">npx @knfs-tech/bamimi-cli build</code></pre>
 				</div>
 				<div class="d-flex justify-content-center align-items-center">
 					<a href="https://github.com/knfs-library/bamimi-cli" target="_blank" title="BAMIMI Cli">
@@ -218,6 +218,14 @@
 						<div class="btn-tab" id="tabSecurity">
 							<i class="fas fa-shield-alt"></i>
 							<span class="font-tab">Security</span>
+						</div>
+						<div class="btn-tab" id="tabCache">
+							<i class="fas fa-sd-card"></i>
+							<span class="font-tab">Cache</span>
+						</div>
+						<div class="btn-tab" id="tabStorage">
+							<i class="fas fa-box"></i>
+							<span class="font-tab">Storage</span>
 						</div>
 						<div class="btn-tab" id="tabMail">
 							<i class="fas fa-envelope"></i>
@@ -272,7 +280,7 @@ router.get(
 								Of course, you may define your own authentication middleware, allowing you to customize the authentication process.
 								
 								For more information on <span class="bami">BAMI</span><span class="mi">MI</span>'s authentication features, check out
-								the <a href="/docs/0.6.x?content=me_authenticate">authentication documentation</a>.
+								the <a href="/docs/1.x.x?content=me_authenticate">authentication documentation</a>.
 							</p>
 						</div>
 						<div class="tab-content" id="contentSecurity">
@@ -307,7 +315,125 @@ router.post(
 								<pre><code class="language-html" id="html-code"></code></pre>
 							</div>
 
-							<a href="/docs/0.6.x?content=me_security">Learn more</a>
+							<a href="/docs/1.x.x?content=me_security">Learn more</a>
+							</p>
+						</div>
+						<div class="tab-content" id="contentCache">
+							<h3>Cache</h3>
+							<p>
+								<span class="bami">BAMI</span><span class="mi">MI</span> supports 3 types of cache: Local cache, redis and memcached.
+								<br>
+								For example local cache <a href="https://www.npmjs.com/package/@knfs-tech/bamimi-cache">@knfs-tech/bamimi-cache</a> library, you can use it to cache in localstorage:
+							<div class="position-relative code-container">
+								<pre><code class="language-javascript">//src/http/controllers/api/demo.controller.js
+"use strict";
+
+const Cache = require("@iKernel/cache")()
+const cache = Cache.singleton;
+
+module.exports = {
+	index: async function (req, res, next) {
+		try {
+			cache.set("user", {
+				id: 1,
+				name: "demo user",
+				age: 12
+			})
+			const user = {
+				id: 1,
+				name: "demo user",
+				age: 12
+			}
+			return res.status(200).sendUser(user);
+		} catch (error) {
+			next(error)
+		}
+	}
+};
+</code></pre>
+							</div>
+							You can configure more in config
+							<div class="position-relative code-container">
+								<pre><code class="language-javascript">//src/configs/cache.js
+//above config
+local: {
+	folder: path.join(__dirname, '../../storage/cache'), // Directory for storing cache files
+	expire: 0, // Cache expiration time in seconds (0 means no expiration)
+	autoCompress: false, // Whether to compress cache files automatically
+	log: false, // Enable logging for cache operations
+	peakDuration: 2000, // Maximum duration for cache peak
+	maxSize: 0, // Maximum size for cache (0 means no size limit)
+},
+
+//below config
+</code></pre>
+							</div>
+
+							<a href="/docs/1.x.x?content=me_cache">Learn more</a>
+							</p>
+						</div>
+						<div class="tab-content" id="contentStorage">
+							<h3>Storage</h3>
+							<p>
+								<span class="bami">BAMI</span><span class="mi">MI</span> supports all types of storage and storage services.
+							<div class="position-relative code-container">
+								<pre><code class="language-javascript">//src/routes/api/file.js
+
+const Storage = require("@iKernel/file")()
+const FileController = require("@iApp/http/controllers/apis/file.controller")
+
+router.post("/images",
+	(Storage.upload({
+		options: {
+			limits: { fileSize: 10 * 1024 * 1024 },
+			filename: (req, file, cb) => {
+				const userId = req.session.currentUser.id;
+				const id = req.body.id ?? '';
+				const fileN = id + '-' + 'u' + '-' + userId + '-' + Date.now().toString() + '-' + file.originalname;
+				file.aliasName = fileN
+				if (cb) {
+					cb(null, fileN);
+
+				}
+			},
+			fileFilter: (req, file, cb) => {
+				const allowedTypes = /jpeg|jpg|png|/;
+				const isFileTypeValid = allowedTypes.test(file.mimetype);
+
+				if (isFileTypeValid) {
+					cb(null, true);
+				} else {
+					cb(new Error('Invalid file type. Only JPG, JPEG, PNG, and GIF files are allowed.'), false);
+				}
+			}
+		}
+	})).single('file'),
+	FileController.upload)
+</code></pre>
+							</div>
+							You can configure more in config
+							<div class="position-relative code-container">
+								<pre><code class="language-javascript">//src/configs/file.js
+module.exports = {
+    use: process.env.STORAGE || "local", // Storage option to use (can be "local", "s3", "blob", or "gcStorage")
+    defaultLimits: {
+        fileSize: 1024 * 1024  // Maximum file size for uploads (1MB)
+    },
+    storages: {
+        local, // Local storage configuration
+        s3, // S3 storage configuration
+        blob: {
+            ...blob,
+            connectString:
+                `DefaultEndpointsProtocol=${blob.defaultEndpointsProtocol};AccountName=${blob.accountName};AccountKey=${blob.accountKey};EndpointSuffix=${blob.endpointSuffix}`, // Azure connection string for Blob storage
+        },
+        gcStorage, // Google Cloud Storage configuration
+    }
+};
+</code></pre>
+							</div>
+
+							<a href="/docs/1.x.x?content=me_storage">Learn more</a>
 							</p>
 						</div>
 						<div class="tab-content" id="contentMail">
@@ -326,19 +452,18 @@ router.post(
 <pre><code class="language-javascript">//src/app/emails/demoEmail.email.js
 "use strict";
 
-const { renderTemplate } = require("@iUtils/mail");
-const { QueueManager } = require("@knfs-tech/bamimi-schedule")
+const { renderTemplate } = require("@iKernel/mail");
+const QueueManager = require("@iKernel/queue")()
 module.exports = (data) => {
 const html = renderTemplate("demoEmail.ejs");
 
-QueueManager
-	.singleton()
-	.getQueue("demoEmail")
-	.add("demoEmail", {
-		to: data.email, 
-		subject: "Welcome to BAMIMI land", 
-		html: html});
-};
+QueueManager.getQueue("emailQueue").add("sendMail", {
+	to: data.email,
+	subject: "Welcome to Bamimi land",
+	html: html
+});
+
+}
 </code></pre>
 							</div>
 							<li>At <strong>demoEmail.job.js</strong>, The job performs retrieving data from the queue and handles sending email </li>
@@ -346,10 +471,11 @@ QueueManager
 <pre><code class="language-javascript">//src/app/jobs/demoEmail.job.js
 "use strict";
 
-const { sendMail } = require("@iUtils/mail");
+const { sendMail } = require("@iKernel/mail");
 module.exports = {
 	name: "demoEmail",
 	queue: "demoEmail",
+	queueManager: "bullmq",
 	handle: async function (job) {
 		await sendMail(job.data); 
 	}
@@ -376,7 +502,7 @@ module.exports = [
 </code></pre>
 							</div>
 							<p>
-								That's just a basic example of creating an email. You can see detailed usage with many cases at the the <a href="/docs/0.6.x?content=me_mail">documentation</a>
+								That's just a basic example of creating an email. You can see detailed usage with many cases at the the <a href="/docs/1.x.x?content=me_mail">documentation</a>
 							</p>
 						</div>
 						<div class="tab-content" id="contentJobQueue">
@@ -393,6 +519,7 @@ module.exports = [
 module.exports = {
     name: "demoJob",
     queue: "demoJob",
+	queueManager: "bullmq",
     handle: async function (job) {}
 };
 
@@ -412,7 +539,7 @@ module.exports = [
 ];
 </code></pre>
 							</div>
-							<p>There are many more job properties and how to use them in practice, see here <a href="/docs/0.6.x?content=me_job-queue">job queue documentation</a></p>
+							<p>There are many more job properties and how to use them in practice, see here <a href="/docs/1.x.x?content=me_job-queue">job queue documentation</a></p>
 						</div>
 						<div class="tab-content" id="contentTaskScheduling">
 							<h3>Task Scheduling</h3>
@@ -433,6 +560,7 @@ module.exports = [
 module.exports = {
     name: "cronJob",
     queue: "cronJob",
+	queueManager: "bullmq",
 	schedules: [
 		{
 			name: "first-day-every-month",
@@ -466,7 +594,7 @@ module.exports = [
 $ bamimi-enjoy-&lt;projectName&gt;-dev job cronJob
 </code></pre>
 							</div>
-							<a href="/docs/0.6.x?content=me_task-scheduling">Learn more</a>
+							<a href="/docs/1.x.x?content=me_task-scheduling">Learn more</a>
 						</div>
 						<div class="tab-content" id="contentSocket">
 							<h3>Socket</h3>
@@ -695,7 +823,7 @@ $ bamimi-enjoy-&lt;projectName&gt;-dev // for dev
 $ bamimi-enjoy-&lt;projectName&gt;  // for build version
 </code></pre>
 							</div>
-							<a href="/docs/0.6.x?content=me_interfaces">Learn More</a>
+							<a href="/docs/1.x.x?content=me_interfaces">Learn More</a>
 						</div>
 						<div class="tab-content" id="contentTesting">
 							<h3>Testing</h3>
@@ -748,7 +876,7 @@ test('adds 1 + 2 to equal 3', () => {
 							</li>
 							<div class="position-relative code-container">
 <pre><code class="language-docker"># Stage 1: Builder
-FROM node:20 AS builder
+FROM node:22 AS builder
 
 # Install necessary build tools
 RUN apt-get update && apt-get install -y \
@@ -759,13 +887,19 @@ python3 \
 
 WORKDIR /usr/src/app
 
+# Copy package.json and yarn.lock for dependency installation
 COPY --chown=node:node package.json yarn.lock ./
 
 # Install dependencies for building
 RUN yarn install --production=false
 
+# Copy the application code
 COPY --chown=node:node . .
 
+# Set proper permissions for the storage folder
+RUN mkdir -p storage && chmod -R 775 storage && chown -R node:node storage
+RUN yarn add @knfs-tech/bamimi-cli -D
+# Build the application
 RUN yarn build
 </code></pre>
 							</div>
@@ -774,19 +908,22 @@ RUN yarn build
 							</li>
 							<div class="position-relative code-container">
 <pre><code class="language-docker"># Stage 2: Development
-FROM node:20-slim as development
+FROM node:22-slim as development
 
-# Copy only the dist directory from the builder stage
+# Set working directory
+WORKDIR /usr/src/app
+
+# Copy necessary files from builder stage
 COPY --from=builder /usr/src/app/dist /usr/src/app/dist
-
 COPY --from=builder /usr/src/app/package.json /usr/src/app/package.json
 COPY --from=builder /usr/src/app/node_modules /usr/src/app/node_modules
 COPY --from=builder /usr/src/app/.env /usr/src/app/.env
+COPY --from=builder /usr/src/app/storage /usr/src/app/storage
+
+# Install all dependencies (including devDependencies)
+RUN yarn install --production=false --ignore-scripts
 
 ENV NODE_ENV=development
-WORKDIR /usr/src/app
-
-RUN yarn install --production=false --ignore-scripts
 
 EXPOSE 3000
 
@@ -798,32 +935,38 @@ CMD ["yarn", "start"]
 							</li>
 							<div class="position-relative code-container">
 <pre><code class="language-docker"># Stage 3: Production
-FROM node:20-slim as production
+FROM node:22-slim as production
 
-# Copy only the dist directory from the builder stage
-COPY --from=builder /usr/src/app/dist /usr/src/app/dist
-
-COPY --from=builder /usr/src/app/package.json /usr/src/app/package.json
-COPY --from=builder /usr/src/app/.env /usr/src/app/.env
-
-ENV NODE_ENV=production
+# Set working directory
 WORKDIR /usr/src/app
 
+# Copy only necessary files from builder stage
+COPY --from=builder /usr/src/app/dist /usr/src/app/dist
+COPY --from=builder /usr/src/app/package.json /usr/src/app/package.json
+COPY --from=builder /usr/src/app/.env /usr/src/app/.env
+COPY --from=builder /usr/src/app/storage /usr/src/app/storage
+
+# Install production dependencies
 RUN yarn install --production
 
+# Set environment variables
+ENV NODE_ENV=production
+
+# Expose the application port
 EXPOSE 3000
 
+# Run the application
 CMD ["yarn", "start"]
 </code></pre>
 							</div>
-							<a href="/docs/0.6.x?content=gs_deployment#docker">Learn More</a>
+							<a href="/docs/1.x.x?content=gs_deployment#docker">Learn More</a>
 						</div>
 					</div>
 				</div>
 				<br>
 				<p>
 					We've only begun to explore the possibilities. With <span class="bami">BAMI</span><span class="mi">MI</span>, you have everything you need to build a complete web
-					application—email verification, linting, and even custom console commands. Dive into <a href="/docs/0.6.x">the documentation</a> to
+					application—email verification, linting, and even custom console commands. Dive into <a href="/docs/1.x.x">the documentation</a> to
 					continue your journey!
 				</p>
 			</div>
