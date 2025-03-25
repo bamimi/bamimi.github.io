@@ -454,15 +454,15 @@ module.exports = {
 
 const { renderTemplate } = require("@iKernel/mail");
 const QueueManager = require("@iKernel/queue")()
+
 module.exports = (data) => {
-const html = renderTemplate("demoEmail.ejs");
+	const html = renderTemplate("demoEmail.ejs");
 
-QueueManager.getQueue("emailQueue").add("sendMail", {
-	to: data.email,
-	subject: "Welcome to Bamimi land",
-	html: html
-});
-
+	QueueManager.getQueue("emailQueue").add("sendMail", {
+		to: data.email,
+		subject: "Welcome to Bamimi land",
+		html: html
+	});
 }
 </code></pre>
 							</div>
